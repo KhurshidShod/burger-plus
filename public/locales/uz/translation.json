@@ -1,0 +1,29 @@
+{
+    "Aksiya": "Chegirmalar",
+    "Pitsa": "Pitsa",
+    "Sushi": "Sushi",
+    "Napitka": "Ichimliklar",
+    "Snek": "Gazaklar",
+    "Kombo": "Kombo",
+    "Desert": "Shirinliklar",
+    "Sous": "Souslar",
+    "yetVaqt": "O'rtacha yetkazish vaqti",
+    "ishVaqti": "Ish vaqti",
+    "adresTek": "Manzilni tekshirish", 
+    "Aksiyalar": {
+        "1": "3 ta o'rtacha pitsa 999 rubldan",
+        "2": "Yetkazib berish xizmati uchun 10% chegirma"
+    },
+    "checkAdd": "Yetkazib berish manzilini tekshiring",
+    "Address": "Manzil",
+    "Check": "Tekshirish",
+    "Tanla": "Tanlash",
+    "Haqida": "Kompaniya haqida",
+    "PolSog": "Foydalanish shartlari",
+    "Garantiya": "Kafolat shartlari",
+    "Restoran": "Restoran",
+    "Kontakt": "Kontaktlar",
+    "Yordam": "Yordam",
+    "Paderjka": "Qo'llab-quvvatlash",
+    "Otsledit": "Buyurtmangizni kuzatib boring"
+}

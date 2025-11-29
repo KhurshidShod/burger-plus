@@ -1,0 +1,35 @@
+.category__wrapper_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  flex-wrap: wrap;
+  h1 {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 48px;
+    color: var(--fontColor-black);
+    @media (max-width: 570px) {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 32px;
+    }
+  }
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 9px 16px;
+    color: var(--fontColor-black);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    border-radius: 6px;
+    background-color: transparent;
+    border: 1px solid var(--color-orange);
+    cursor: pointer;
+  }
+}

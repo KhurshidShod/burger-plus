@@ -1,0 +1,12 @@
+.category__wrapper_cards {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    @media (max-width: 570px) {
+      gap: 1rem;
+    }
+  }
