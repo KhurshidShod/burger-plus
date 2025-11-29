@@ -58,7 +58,6 @@ const Header = () => {
                 onChange={(e) => changeLang(e)}
               >
                 <option value="uz">Uz</option>
-                <option value="en">En</option>
                 <option value="ru">Ru</option>
               </select>
               <p>{t("adresTek")}</p>
@@ -66,45 +65,6 @@ const Header = () => {
                 {t("yetVaqt")} <b>00:24:19</b>
               </p>
             </div>
-            {/* <div
-              className={`${styles.nav__menu} ${navOpen ? styles.open : null}`}
-            >
-              <div>
-                <button onClick={changeTheme}>
-                  {theme === "dark" ? (
-                    <BsFillMoonStarsFill color="var(--color-orange)" />
-                  ) : (
-                    <BsFillSunFill color="var(--color-orange)" />
-                  )}
-                </button>
-              </div>
-              <ul>
-                <li>
-                  <a href="">{t("Aksiya")}</a>
-                </li>
-                <li>
-                  <a href="">{t("Haqida")}</a>
-                </li>
-                <li>
-                  <a href="">{t("PolSog")}</a>
-                </li>
-                <li>
-                  <a href="">{t("Garantiya")}</a>
-                </li>
-                <li>
-                  <a href="">{t("Restoran")}</a>
-                </li>
-                <li>
-                  <a href="">{t("Kontakt")}</a>
-                </li>
-                <li>
-                  <a href="">{t("Paderjka")}</a>
-                </li>
-                <li>
-                  <a href="">{t("Otsledit")}</a>
-                </li>
-              </ul>
-            </div> */}
             <div className={styles.navTop__right}>
               <p>
                 {t("ishVaqti")}
@@ -131,25 +91,6 @@ const Header = () => {
               <img width={65} src={Logo} alt="" />
               Burger Plus
             </NavLink>
-            
-            {/* <input
-              type="checkbox"
-              id="checkbox"
-              onChange={() => setNavOpen(!navOpen)}
-            />
-            <label htmlFor="checkbox" className="toggle">
-              <div className="bars" id="bar1"></div>
-              <div className="bars" id="bar2"></div>
-              <div className="bars" id="bar3"></div>
-            </label>
-            <Button padding={"8px 16px"} br={"4px"} fontSize={"16px"}>
-              <FaShoppingCart />
-              <NavLink href="/cart" className='cartBtn'>
-                <p>{cart.length}</p>
-                <p>{String(allPrice)}</p>
-                <p>₽</p>
-              </NavLink>
-            </Button> */}
           </div>
         </div>
         <span></span>

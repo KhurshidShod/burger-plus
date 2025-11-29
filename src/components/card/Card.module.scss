@@ -6,28 +6,18 @@
   gap: 1rem;
   background-color: var(--bgcolor-white);
   width: calc(100% / 4 - 30px);
-  // min-width: 250px;
   flex-grow: 1;
   border-radius: 12px;
   border: 1px solid var(--color-border);
   transition: 0.2s linear;
   z-index: 0 !important;
   padding: 10px;
-  // @media (max-width: 570px) {
-  //   flex-direction: column;
-  //   width: 100%;
-  //   align-items: center;
-  //   justify-content: start;
-  //   gap: 5px;
-  //   min-width: 200px;
-  // }
   @media (max-width: 650px) {
     flex-direction: column;
     width: calc(100% / 2 - 1.2rem);
     align-items: center;
     justify-content: space-between;
     gap: 5px;
-    // min-width: 200px;
   }
   &:hover {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -79,21 +69,12 @@
     align-items: start;
     gap: 1rem;
     width: 100%;
-    div {
+    &__purchase {
       display: flex;
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      p {
-        color: var(--color-orange);
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 24px;
-        @media (max-width: 570px) {
-          display: none;
-        }
-      }
-      button {
+      &_add {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -109,54 +90,42 @@
         @media (max-width: 650px) {
           padding: 10px 10px;
         }
-        span{
-          display: none;
-          pointer-events: none;
-          color: white;
-          @media (max-width: 650px) {
-            display: flex;
-          }
-        }
-        // display: "flex";
-        // justify-content: "center";
-        // align-items: "center";
-        // gap: ".5rem";
-        // background-color: var(--color-orange);
-        // padding: 13px 32px;
-        // border-radius: 6px;
-        // font-size: 16px;
-        // transition: ".1s linear";
-        // cursor: pointer;
-        // color: white !important;
-        // span{
-        //   display: none;
-        //   pointer-events: none;
-        //   color: var(--color-orange);
-        //   @media (max-width: 570px) {
-        //     display: flex;
-        //   }
-        // }
-        // @media (max-width: 570px) {
-        //   background-color: #ffeee2 !important;
-        //   padding: 7px 16px !important;
-        // }
         p {
           color: white;
           font-size: 16px;
           font-weight: 400;
           line-height: 22px;
           pointer-events: none;
-          @media (max-width: 650px) {
-            display: none;
-          }
+        }
+      }
+      &_change {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        button {
+          width: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          background-color: var(--color-orange);
+          color: white !important;
+          padding: 5px;
+          font-size: 26px;
+          transition: ".1s linear";
+          cursor: pointer;
+          border-radius: 6px;
         }
       }
     }
     @media (max-width: 650px) {
       gap: 5px;
-          align-self: stretch;
-    flex-grow: 1;
-    justify-content: space-between;
+      align-self: stretch;
+      flex-grow: 1;
+      justify-content: space-between;
     }
     h3 {
       font-size: 18px;
@@ -164,28 +133,8 @@
       line-height: 24px;
       color: var(--fontColor-black);
       @media (max-width: 650px) {
-        // display: -webkit-box;
-        // -webkit-box-orient: vertical;
-        // -webkit-line-clamp: 1;
-        // overflow: hidden;
         font-size: 16px;
         font-weight: 700;
-      }
-    }
-    p {
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--fontColor-black);
-      line-height: 22px;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-      overflow: hidden;
-      @media (max-width: 570px) {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        overflow: hidden;
       }
     }
   }

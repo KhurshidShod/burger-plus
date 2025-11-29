@@ -6,54 +6,45 @@ import { useTranslation } from "react-i18next";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContextProvider";
 import { products } from "../../assets/data/products";
+import { IoAddOutline, IoRemove } from "react-icons/io5";
 
 const Card = ({ prod }) => {
   const { t, i18n } = useTranslation();
   const { cart, setCart } = useContext(CartContext);
   const addToCart = (id) => {
     const prod = products.find((prod) => prod.id === id);
+    console.log(prod);
     let newProds = [];
-    if (cart.find((el) => el.id === id)) {
+    newProds = [...cart, { ...prod, qty: 1 }];
+    setCart(newProds);
+    localStorage.setItem("cart", JSON.stringify(newProds));
+  };
+  const increaseCart = () => {
+    let newProds = [];
+    newProds = cart.map((el) => {
+      if (el.id === prod.id) {
+        el.qty++;
+      }
+      return el;
+    });
+    setCart(newProds);
+    localStorage.setItem("cart", JSON.stringify(newProds));
+  };
+  const decreaseCart = () => {
+    let newProds = [];
+    if (cart.find((el) => el.id === prod.id).qty == 1) {
+      newProds = cart.filter((el) => el.id !== prod.id);
+    } else {
       newProds = cart.map((el) => {
-        if (el.id === id) {
-          el.qty++;
+        if (el.id === prod.id) {
+          el.qty--;
         }
         return el;
       });
-    } else {
-      newProds = [...cart, { ...prod, qty: 1 }];
     }
-    // setTimeout(() => {
-      setCart(newProds);
-    // }, 1250);
+    setCart(newProds);
     localStorage.setItem("cart", JSON.stringify(newProds));
   };
-  // const addToCartAnimation = (e) => {
-  //   const span = document.createElement('span')
-  //   span.classList.add('animatingIcon')
-  //   const parent = e.parentNode.parentNode.parentNode;
-  //   let img = parent.querySelector('img');
-  //   let flyingImg = img.cloneNode()
-  //   flyingImg.classList.add('flyingImage')
-  //   parent.appendChild(flyingImg)
-  //   parent.style.position = 'relative'
-  //   parent.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.style.overflow = 'hidden'
-    
-  //   const flyingImgPos = flyingImg.getBoundingClientRect()
-  //   const cartBtnPos = document.querySelector('.cartBtn').getBoundingClientRect()
-  //   document.querySelector('.cartBtn').parentNode.style.width = '150px !important'
-  //   let data = {
-  //     left: cartBtnPos.left - (cartBtnPos.width / 2 + flyingImgPos.left + flyingImgPos.width / 2) - 50,
-  //     top: cartBtnPos.bottom - flyingImgPos.bottom + 150
-  //   }
-  //   flyingImg.style.cssText = `
-  //   --left: ${data.left.toFixed(2)}px;
-  //   --top: ${data.top.toFixed(2)}px;`
-  //   console.log(data.top)
-  //   setTimeout(() => {
-  //     flyingImg.style.display = 'none'
-  //   }, 1490);
-  // }
   return (
     <div className={styles.category__wrapper_cards_card}>
       <div className={styles.category__wrapper_cards_card_img}>
@@ -62,16 +53,37 @@ const Card = ({ prod }) => {
       </div>
       <div className={styles.text}>
         <h3>{prod.name}</h3>
-        {/* <p>{prod.description}</p> */}
-        <div>
-          <button onClick={() => {
-            addToCart(prod.id)
-            // addToCartAnimation(e.target)
-          }}>
-            <p>{t("Tanla")}</p>
-            <span>{prod.price} ₽</span>
-          </button>
-          <p>{prod.price} ₽</p>
+        <div className={styles.text__purchase}>
+          {JSON.parse(localStorage.getItem("cart"))?.find(
+            (el) => el.id === prod.id
+          ) ? (
+            <div className={styles.text__purchase_change}>
+              <button onClick={() => decreaseCart()}>
+                <IoRemove />
+              </button>
+              <b>
+                {
+                  JSON.parse(localStorage.getItem("cart"))?.find(
+                    (el) => el.id === prod.id
+                  ).qty
+                }
+              </b>
+              <button onClick={() => increaseCart()}>
+                <IoAddOutline />
+              </button>
+            </div>
+          ) : (
+            <button
+              className={styles.text__purchase_add}
+              onClick={() => {
+                addToCart(prod.id);
+              }}
+            >
+              <p>
+                <b>{prod.price}00</b> {t("uzs")}
+              </p>
+            </button>
+          )}
         </div>
       </div>
     </div>
