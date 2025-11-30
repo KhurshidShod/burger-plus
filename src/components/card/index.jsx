@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContextProvider";
 import { products } from "../../assets/data/products";
 import { IoAddOutline, IoRemove } from "react-icons/io5";
+import { formatCustomNumber } from "../../utils/numberUtils";
 
 const Card = ({ prod }) => {
   const { t, i18n } = useTranslation();
@@ -80,7 +81,7 @@ const Card = ({ prod }) => {
               }}
             >
               <p>
-                <b>{prod.price}00</b> {t("uzs")}
+                <b>{formatCustomNumber(prod.price)}</b> {t("uzs")}
               </p>
             </button>
           )}

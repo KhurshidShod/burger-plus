@@ -15,6 +15,7 @@ import Card from "../../components/card";
 import NoProd from "../../assets/images/no-product.webp";
 import { TbSend } from "react-icons/tb";
 import Cart from "../../components/cart";
+import CartModal from "../../components/cartModal";
 
 const HomePage = () => {
   const [t, i18n] = useTranslation();
@@ -88,6 +89,7 @@ const HomePage = () => {
 
       <Categories />
       <Cart />
+      <CartModal />
       <Element name="aksiya">
         <section className={styles.discounts}>
           <div className="container">
