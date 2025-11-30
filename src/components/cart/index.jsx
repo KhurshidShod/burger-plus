@@ -5,17 +5,22 @@ import { FaCartShopping } from "react-icons/fa6";
 import { CartContext } from "../../context/CartContextProvider";
 import { formatCustomNumber } from "../../utils/numberUtils";
 
-const Cart = () => {
-  const [t, i18n] = useTranslation();
-  const { cart, setCart } = useContext(CartContext);
+const Cart = ({ openModal }) => {
+  const { cart } = useContext(CartContext);
+  const { t } = useTranslation();
+
+  const total = cart.reduce((acc, el) => acc + el.price * el.qty, 0);
 
   return (
     <div className={styles.cart}>
       {cart.length > 0 ? (
-        <button className={styles.cart__order}>
+        <button
+          onClick={() => openModal(true)}
+          className={styles.cart__order}
+        >
           <FaCartShopping />{" "}
           <p>
-            {formatCustomNumber(cart?.reduce((acc, el) => acc + el.price * el.qty, 0))} {t("uzs")}
+            {formatCustomNumber(total)} {t("uzs")}
           </p>
         </button>
       ) : (

@@ -16,93 +16,28 @@ import NoProd from "../../assets/images/no-product.webp";
 import { TbSend } from "react-icons/tb";
 import Cart from "../../components/cart";
 import CartModal from "../../components/cartModal";
+import { useState } from "react";
 
 const HomePage = () => {
-  const [t, i18n] = useTranslation();
-  // const [location, setLocation] = useState(null);
-  // const [error, setError] = useState(null);
-
-  // const API_KEY = "pk.8364bb182b60c3885d0cd46aec9ad1af"; // ← PUT YOUR KEY HERE
-
-  // const getAddress = async (lat, lon) => {
-  //   try {
-  //     const res = await fetch(
-  //       `https://us1.locationiq.com/v1/reverse?key=${API_KEY}&lat=${lat}&lon=${lon}&format=json`
-  //     );
-
-  //     const data = await res.json();
-  //     return data;
-  //   } catch (err) {
-  //     console.error(err);
-  //     return null;
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (!navigator.geolocation) {
-  //     setError("Geolocation is not supported");
-  //     return;
-  //   }
-
-  //   navigator.geolocation.getCurrentPosition(
-  //     async (pos) => {
-  //       const { latitude, longitude } = pos.coords;
-  //       const result = await getAddress(latitude, longitude);
-
-  //       if (!result) {
-  //         setError("Unable to fetch address");
-  //         return;
-  //       }
-
-  //       setLocation({
-  //         latitude,
-  //         longitude,
-  //         fullAddress: result.display_name || "N/A",
-  //         street: result.address?.road || "N/A",
-  //         city:
-  //           result.address?.city ||
-  //           result.address?.town ||
-  //           result.address?.village ||
-  //           "N/A",
-  //         region: result.address?.state || "N/A",
-  //         country: result.address?.country || "N/A",
-  //       });
-  //     },
-  //     (err) => setError(err.message)
-  //   );
-  // }, []);
+  const [t] = useTranslation();
+  const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
   return (
     <Layout>
-      {/* <div>
-        <h2>Your Location</h2>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-
-        <p>Latitude: {location?.latitude || "Searching..."}</p>
-        <p>Longitude: {location?.longitude || "Searching..."}</p>
-        <p>Street: {location?.street || "Searching..."}</p>
-        <p>City: {location?.city || "Searching..."}</p>
-        <p>Region: {location?.region || "Searching..."}</p>
-        <p>Country: {location?.country || "Searching..."}</p>
-        <p>Full Address: {location?.fullAddress || "Searching..."}</p>
-      </div> */}
-
       <Categories />
-      <Cart />
-      <CartModal />
+      {/* Cart opener */}
+      <Cart openModal={setIsCartModalOpen} />
+      {/* Cart modal */}
+      <CartModal
+        isOpen={isCartModalOpen}
+        setOpened={setIsCartModalOpen}
+      />
+
       <Element name="aksiya">
         <section className={styles.discounts}>
           <div className="container">
             <div className={styles.discounts__wrapper}>
               <div className={styles.discounts__wrapper_inner}>
-                <div className={styles.discount}>
-                  <img src={Aksiya1} alt="" />
-                  <h1>{t("Aksiyalar.1")}</h1>
-                </div>
-                <div className={styles.discount}>
-                  <img src={Aksiya2} alt="" />
-                  <h1>{t("Aksiyalar.2")}</h1>
-                </div>
                 <div className={styles.discount}>
                   <img src={Aksiya1} alt="" />
                   <h1>{t("Aksiyalar.1")}</h1>
@@ -125,7 +60,7 @@ const HomePage = () => {
               <div>
                 <input type="text" placeholder={t("Address")} />
               </div>
-              <Button br={"6px"} padding={"12px 32px"} fontSize={"16px"}>
+              <Button br="6px" padding="12px 32px" fontSize="16px">
                 <p>{t("Check")}</p>
                 <span>
                   <TbSend size={25} />
