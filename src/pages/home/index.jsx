@@ -46,6 +46,14 @@ const HomePage = () => {
                   <img src={Aksiya2} alt="" />
                   <h1>{t("Aksiyalar.2")}</h1>
                 </div>
+                <div className={styles.discount}>
+                  <img src={Aksiya1} alt="" />
+                  <h1>{t("Aksiyalar.1")}</h1>
+                </div>
+                <div className={styles.discount}>
+                  <img src={Aksiya2} alt="" />
+                  <h1>{t("Aksiyalar.2")}</h1>
+                </div>
               </div>
             </div>
           </div>
