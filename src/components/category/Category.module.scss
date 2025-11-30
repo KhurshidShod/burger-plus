@@ -6,11 +6,19 @@
   padding-bottom: 2rem;
   padding-top: 2rem;
   flex-wrap: wrap;
+  span{
+    height: 2px;
+    flex-grow: 1;
+    border-radius: 20px;
+    background-color: var(--color-orange);
+  }
   h1 {
     font-size: 40px;
     font-weight: 600;
     line-height: 48px;
     color: var(--fontColor-black);
+    padding-left: 7.5px;
+    padding-right: 7.5px;
     @media (max-width: 570px) {
       font-size: 28px;
       font-weight: 600;

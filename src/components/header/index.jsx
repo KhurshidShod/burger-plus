@@ -88,8 +88,8 @@ const Header = () => {
             }`}
           >
             <NavLink href="" className={styles.logo}>
-              <img width={65} src={Logo} alt="" />
-              Burger Plus
+              <img width={75} src={Logo} alt="" />
+              Burger <p>Plus</p>
             </NavLink>
           </div>
         </div>
