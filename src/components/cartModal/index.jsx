@@ -64,7 +64,7 @@ const CartModal = ({ isOpen, setOpened }) => {
           <div className={styles.cartModal_orders}>
             {cart.map((el) => (
               <div key={el.id} className={styles.cartModal_orders__order}>
-                <img width={50} height={50} src={el.image} alt={el.name} />
+                <img width={65} height={65} src={el.image} alt={el.name} />
                 <div className={styles.cartModal_orders__order_info}>
                   <h3>{el.name}</h3>
                   <p>{formatCustomNumber(el.price)}</p>
